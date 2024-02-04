@@ -1,3 +1,4 @@
+import os
 import pickle
 import re
 
@@ -19,7 +20,7 @@ predefined_colors = {
     "kPink" : 900,
 }
 
-with open("ROOTColorDB.p", "rb") as file:
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "ROOTColorDB.p"), "rb") as file:
     color_hex_dict = pickle.load(file)
 
 def get_ROOT_color_as_hex(ROOT_color_idx):
