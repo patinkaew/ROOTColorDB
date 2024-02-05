@@ -16,26 +16,12 @@ ROOT.gInterpreter.Declare("""
                               if(col){return std::string(col -> AsHexString());}else{return "";} }
                           """)
 
-predefined_colors = {
-    "kWhite" : 0,
-    "kBlack" : 1,
-    "kGray" : 920,
-    "kRed" : 632,
-    "kGreen" : 416,
-    "kBlue" : 600,
-    "kYellow" : 400,
-    "kMagenta" : 616,
-    "kCyan" : 432,
-    "kOrange" : 800,
-    "kSpring" : 820,
-    "kTeal" : 840,
-    "kAzure" : 860,
-    "kViolet" : 880,
-    "kPink" : 900,
-}
-
 if __name__ == "__main__":
     num_colors = ROOT.numberOfColors()
+    
+    with open("ROOTPredefinedColor.json", "r") as file:
+        predefined_colors = json.load(file)
+        
     color_hex_dict = dict()
     
     for color_name, color_idx in predefined_colors.items():

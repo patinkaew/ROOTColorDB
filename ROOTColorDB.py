@@ -1,24 +1,10 @@
 import os
+import json
 import pickle
 import re
 
-predefined_colors = {
-    "kWhite" : 0,
-    "kBlack" : 1,
-    "kGray" : 920,
-    "kRed" : 632,
-    "kGreen" : 416,
-    "kBlue" : 600,
-    "kYellow" : 400,
-    "kMagenta" : 616,
-    "kCyan" : 432,
-    "kOrange" : 800,
-    "kSpring" : 820,
-    "kTeal" : 840,
-    "kAzure" : 860,
-    "kViolet" : 880,
-    "kPink" : 900,
-}
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "ROOTPredefinedColor.json"), "r") as file:
+    predefined_colors = json.load(file)
 
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "ROOTColorDB.p"), "rb") as file:
     color_hex_dict = pickle.load(file)
